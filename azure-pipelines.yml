@@ -11,7 +11,7 @@ variables:
   sdk: 'iphoneos'
   configuration: 'Debug'
   GITHUB_U: 'tommychoy'
-  GITHUB_ACCESS_TOKEN: '8332290e7cd9b0d5dd5e37d8fdebcd4be0a7f339'
+  GITHUB_ACCESS_TOKEN: '09025417d@HP'
   
 steps:
 - script: curl https://api.github.com/rate_limit
