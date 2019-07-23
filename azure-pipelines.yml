@@ -16,7 +16,7 @@ variables:
 steps:
 - script: curl https://api.github.com/rate_limit
   displayName: 'Unauthenticated rate limit'
-- script: curl -H 'Authorization: token 8332290e7cd9b0d5dd5e37d8fdebcd4be0a7f339' https://api.github.com/rate_limit
+- script: curl -u GITHUB_U:GITHUB_ACCESS_TOKEN https://api.github.com/rate_limit
   displayName: 'Authenticated rate limit'
 - script: /usr/local/bin/carthage update --platform ios
   displayName: 'Carthage installation'
