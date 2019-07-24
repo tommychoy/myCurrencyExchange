@@ -15,8 +15,10 @@ variables:
 steps:
 - script: curl https://api.github.com/rate_limit
   displayName: 'Unauthenticated rate limit'
-- script: echo $(GITHUB_ACCESS_TOKEN)
+- script: echo $(System.AccessToken)
   displayName: 'Print Token'
+  env:
+    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
 #- script: curl -H Authorization: token 851548e58b8bd2b0449b558174f951a793ad2701 https://api.github.com/rate_limit
 #  displayName: 'Authenticated rate limit'
 - script: /usr/local/bin/carthage update --platform ios
