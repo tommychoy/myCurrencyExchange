@@ -10,13 +10,15 @@ variables:
   scheme: 'myCurrencyExchange'
   sdk: 'iphoneos'
   configuration: 'Debug'
-  #token: '4a580988e32239d023caa6d8311ec3b16c90e8b2'
+  token: ''
+  response: ''
+  code: ''
   
 steps:
 - script: curl https://api.github.com/rate_limit
   displayName: 'Unauthenticated rate limit'
 #- script: /usr/local/bin/carthage update --platform ios
-- script: curl -v -u tommychoy:09025417d@HP -X POST https://api.github.com/authorizations --data @tokenp.json
+- script: response = $(curl -v -u tommychoy:09025417d@HP -X POST https://api.github.com/authorizations --data @tokenp.json) response=(${response[@]}) code=${response[-1]} # get last element (last line)
   displayName: 'Create token'
 - bash: carthage update --platform ios
   env:
