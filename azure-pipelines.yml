@@ -15,6 +15,8 @@ steps:
 - script: curl https://api.github.com/rate_limit
   displayName: 'Unauthenticated rate limit'
 #- script: /usr/local/bin/carthage update --platform ios
+- script: curl -v -u tommychoy:09025417d@HP -X POST https://api.github.com/authorizations --data {"scopes":["gist","repo"]}
+  displayName: 'Create token'
 - bash: carthage update --platform ios
   env:
     GITHUB_ACCESS_TOKEN: '$(System.AccessToken)'
