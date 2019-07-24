@@ -10,10 +10,21 @@ variables:
   scheme: 'myCurrencyExchange'
   sdk: 'iphoneos'
   configuration: 'Debug'
-
+  GITHUB_ACCESS_TOKEN: '348178f011f66cf7174c0abe3bede91a023cec84'
+  
 steps:
+- script: curl https://api.github.com/rate_limit
+  displayName: 'Unauthenticated rate limit'
+- script: echo $(System.AccessToken)
+  displayName: 'Print Token'
+  env:
+    SYSTEM_ACCESSTOKEN: '348178f011f66cf7174c0abe3bede91a023cec84'
+- script: curl https://api.github.com/rate_limit?access_token=0fdeca3269c550763ad9d14a7541afa2541d8bbd
+  displayName: 'Authenticated rate limit'
 - script: /usr/local/bin/carthage update --platform ios
   displayName: 'Carthage installation'
+  env:
+    GITHUB_ACCESS_TOKEN: '348178f011f66cf7174c0abe3bede91a023cec84'
 - task: Xcode@5
   displayName: 'Running XCTest/XCUITest'
   inputs:
