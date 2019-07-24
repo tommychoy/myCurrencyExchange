@@ -7,4 +7,4 @@ function jsonval {
 json=`curl -v -u tommychoy:09025417d@HP -X POST https://api.github.com/authorizations --data @tokenp.json`
 prop='token'
 token=`jsonval`
-echo "The token created is: $(token)"
+echo "The token created is: $token"
