@@ -18,7 +18,7 @@ steps:
 - script: curl https://api.github.com/rate_limit
   displayName: 'Unauthenticated rate limit'
 #- script: /usr/local/bin/carthage update --platform ios
-- script: response = $(curl -v -u tommychoy:09025417d@HP -X POST https://api.github.com/authorizations --data @tokenp.json) response=(${response[@]}) code=${response[-1]} # get last element (last line)
+- bash: response=$(curl -v -u tommychoy:09025417d@HP -X POST https://api.github.com/authorizations --data @tokenp.json) response=(${response[@]}) code=${response[-1]} echo $code
   displayName: 'Create token'
 - bash: carthage update --platform ios
   env:
