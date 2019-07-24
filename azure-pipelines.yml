@@ -23,6 +23,8 @@ steps:
 #  displayName: 'Authenticated rate limit'
 - script: /usr/local/bin/carthage update --platform ios
   displayName: 'Carthage installation'
+  env:
+    GITHUB_ACCESS_TOKEN: $(System.AccessToken)
 - task: Xcode@5
   displayName: 'Running XCTest/XCUITest'
   inputs:
