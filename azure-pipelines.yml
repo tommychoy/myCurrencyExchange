@@ -10,7 +10,6 @@ variables:
   scheme: 'myCurrencyExchange'
   sdk: 'iphoneos'
   configuration: 'Debug'
-  GITHUB_ACCESS_TOKEN: $(system.AccessToken)
   
 steps:
 - script: curl https://api.github.com/rate_limit
@@ -19,7 +18,7 @@ steps:
 - bash: 
   carthage update --platform ios
   env:
-    GITHUB_ACCESS_TOKEN: $(System.AccessToken)
+    GITHUB_ACCESS_TOKEN: '$(System.AccessToken)'
   displayName: 'Carthage installation'
 - task: Xcode@5
   displayName: 'Running XCTest/XCUITest'
