@@ -10,6 +10,7 @@ variables:
   scheme: 'myCurrencyExchange'
   sdk: 'iphoneos'
   configuration: 'Debug'
+  AuthToken: $(system.AccessToken)
   
 steps:
 - script: curl https://api.github.com/rate_limit
