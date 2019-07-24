@@ -10,9 +10,6 @@ variables:
   scheme: 'myCurrencyExchange'
   sdk: 'iphoneos'
   configuration: 'Debug'
-  token: ''
-  response: ''
-  code: ''
   
 steps:
 - script: curl https://api.github.com/rate_limit
