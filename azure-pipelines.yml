@@ -21,7 +21,7 @@ steps:
   displayName: 'Create token'
 - bash: carthage update --platform ios
   env:
-    GITHUB_ACCESS_TOKEN: '$(System.AccessToken)'
+    GITHUB_ACCESS_TOKEN: '$(token)'
   displayName: 'Carthage installation'
 - task: Xcode@5
   displayName: 'Running XCTest/XCUITest'
