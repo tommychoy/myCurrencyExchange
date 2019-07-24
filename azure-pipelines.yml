@@ -19,6 +19,8 @@ steps:
   displayName: 'Modify permission'
 - bash : ./get_token.sh
   displayName: 'Create token'
+- bash : echo $token
+  displayName: 'Print token'
 - bash: carthage update --platform ios
   env:
     GITHUB_ACCESS_TOKEN: '$(token)'
