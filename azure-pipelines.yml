@@ -15,16 +15,8 @@ variables:
 steps:
 - script: curl https://api.github.com/rate_limit
   displayName: 'Unauthenticated rate limit'
-- script: echo $(System.AccessToken)
-  displayName: 'Print Token'
-  env:
-    SYSTEM_ACCESSTOKEN: 'bb1f9c9c9bbd5fd9c81bf08b1dca9f1b3b3c9779'
-- script: curl https://api.github.com/rate_limit?access_token=bb1f9c9c9bbd5fd9c81bf08b1dca9f1b3b3c9779
-  displayName: 'Authenticated rate limit'
 - script: /usr/local/bin/carthage update --platform ios
   displayName: 'Carthage installation'
-  env:
-    GITHUB_ACCESS_TOKEN: 'bb1f9c9c9bbd5fd9c81bf08b1dca9f1b3b3c9779'
 - task: Xcode@5
   displayName: 'Running XCTest/XCUITest'
   inputs:
