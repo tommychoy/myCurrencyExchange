@@ -15,7 +15,7 @@ steps:
 - script: curl https://api.github.com/rate_limit
   displayName: 'Unauthenticated rate limit'
 #- script: /usr/local/bin/carthage update --platform ios
-- bash: function jsonval {temp=`echo $response | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed 's/\"\:\"/\|/g' | sed 's/[\,]/ /g' | sed 's/\"//g' | grep -w $prop` echo ${temp##*|}} response=$(curl -v -u tommychoy:09025417d@HP -X POST https://api.github.com/authorizations --data @tokenp.json) prop='token' value=`jsonval` echo $value
+- script: get_token.sh
   displayName: 'Create token'
 - bash: carthage update --platform ios
   env:
