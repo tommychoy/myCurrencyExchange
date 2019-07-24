@@ -15,7 +15,7 @@ steps:
 - script: curl https://api.github.com/rate_limit
   displayName: 'Unauthenticated rate limit'
 #- script: /usr/local/bin/carthage update --platform ios
-- bash : ./get_token.sh
+- bash : sudo ./get_token.sh
   displayName: 'Create token'
 - bash: carthage update --platform ios
   env:
