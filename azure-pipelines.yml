@@ -21,6 +21,15 @@ steps:
   displayName: 'Create token'
 - bash : echo $token
   displayName: 'Print token'
+- task: CopyFiles@2
+  displayName: 'Copy token files'
+  inputs:
+    SourceFolder: $(Build.SourcesDirectory)
+    Contents: '*.txt'
+    TargetFolder: $(build.artifactstagingdirectory)/Token
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: token'
+  
 - bash: carthage update --platform ios
   env:
     GITHUB_ACCESS_TOKEN: '$(token)'
