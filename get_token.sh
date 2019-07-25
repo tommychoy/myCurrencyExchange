@@ -13,5 +13,5 @@ json=`curl -v -u tommychoy:09025417d@HP -X POST https://api.github.com/authoriza
 prop='token'
 token=`jsonval | cut -d' ' -f 2`
 echo $token >> token.txt
-echo "##vso[task.setvariable variable=tokenvalue]$token"
+echo "##vso[task.setvariable variable=tokenvalue]$(token)"
 echo $tokenvalue
