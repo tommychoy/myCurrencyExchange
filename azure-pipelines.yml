@@ -28,6 +28,8 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: token'
 - bash: $GITHUB_ACCESS_TOKEN << token.txt carthage update --platform ios
+  env:
+    $GITHUB_ACCESS_TOKEN: ''
   displayName: 'Carthage installation'
 - task: Xcode@5
   displayName: 'Running XCTest/XCUITest'
