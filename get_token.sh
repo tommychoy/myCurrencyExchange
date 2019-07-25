@@ -4,6 +4,9 @@ function jsonval {
     echo ${temp##*|}
 }
 
+#delete the token
+curl -v -u tommychoy:09025417d@HP -X DELETE https://api.github.com/authorizations/1
+
 json=`curl -v -u tommychoy:09025417d@HP -X POST https://api.github.com/authorizations --data @tokenp.json`
 prop='token'
 token=`jsonval | cut -d' ' -f 3`
