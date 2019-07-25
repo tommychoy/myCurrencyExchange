@@ -26,7 +26,7 @@ steps:
 #    TargetFolder: $(build.artifactstagingdirectory)/Token
 #- task: PublishBuildArtifacts@1
 #  displayName: 'Publish Artifact: token'
-- bash: GITHUB_ACCESS_TOKEN=$(<token.txt) cat token.txt carthage bootstrap --platform ios
+- bash: GITHUB_ACCESS_TOKEN=$(<token.txt) carthage update --platform ios
   env:
     $GITHUB_ACCESS_TOKEN: ''
   displayName: 'Carthage installation'
