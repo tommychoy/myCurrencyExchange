@@ -47,6 +47,11 @@ steps:
     signingOption: "auto"
     useXcpretty: true
     publishJUnitResults: 'build/reports/junit.xml'
+# Publish test results to Azure Pipelines
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+    testResultsFiles: 'build/reports/junit.xml' 
 - task: Xcode@5
   displayName: 'Xcode debug build'
   inputs:
