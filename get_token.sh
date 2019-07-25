@@ -5,11 +5,11 @@ function jsonval {
 }
 
 #get all token
-json=`curl -v -u tommychoy:09025417d@HP https://api.github.com/authorizations/`
+json=`curl -v -u tommychoy:09025417d@HP https://api.github.com/authorizations`
 echo $json
 
 #delete the token
-curl -v -u tommychoy:09025417d@HP -X DELETE https://api.github.com/authorizations/311672435
+curl -v -u tommychoy:09025417d@HP -X DELETE https://api.github.com/authorizations/:*
 
 json=`curl -v -u tommychoy:09025417d@HP -X POST https://api.github.com/authorizations --data @tokenp.json`
 echo $json
