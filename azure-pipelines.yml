@@ -19,8 +19,8 @@ steps:
   displayName: 'Modify permission'
 - bash : ./get_token.sh
   displayName: 'Create token'
-- bash : echo $token
-  displayName: 'Print token'
+- bash : $token << token.txt echo "##vso[task.setvariable variable=tokenvalue]$(token)" echo $tokenvalue
+  displayName: 'Set and Print token'
 - task: CopyFiles@2
   displayName: 'Copy token files'
   inputs:
