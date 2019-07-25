@@ -19,8 +19,6 @@ steps:
   displayName: 'Modify permission'
 - bash : ./get_token.sh
   displayName: 'Create token'
-- bash : $token << token.txt echo "##vso[task.setvariable variable=tokenvalue]$token" echo $tokenvalue
-  displayName: 'Set and Print token'
 - task: CopyFiles@2
   displayName: 'Copy token files'
   inputs:
@@ -29,10 +27,7 @@ steps:
     TargetFolder: $(build.artifactstagingdirectory)/Token
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: token'
-  
-- bash: carthage update --platform ios
-  env:
-    GITHUB_ACCESS_TOKEN: '$(token)'
+- bash: $GITHUB_ACCESS_TOKEN << token.txt carthage update --platform ios
   displayName: 'Carthage installation'
 - task: Xcode@5
   displayName: 'Running XCTest/XCUITest'
